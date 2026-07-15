@@ -1,0 +1,19 @@
+{
+  "_note": "expected_source is the ground-truth paper each question should retrieve from. Recall@k = did that source appear anywhere in the top-k results. Add more questions over time -- 20-30 is a good target for a resume-credible eval set.",
+  "questions": [
+    {"question": "What is the transformer architecture and how does self-attention work?", "expected_source": "Attention Is All You Need.pdf"},
+    {"question": "Why did the transformer remove recurrence and convolution?", "expected_source": "Attention Is All You Need.pdf"},
+    {"question": "What is multi-head attention?", "expected_source": "Attention Is All You Need.pdf"},
+    {"question": "What is retrieval augmented generation?", "expected_source": "RAG paper.pdf"},
+    {"question": "What are the limitations of pure generative language models that RAG addresses?", "expected_source": "RAG paper.pdf"},
+    {"question": "How does RAG perform in multilingual settings?", "expected_source": "RAG paper.pdf"},
+    {"question": "What is dense passage retrieval and how does it differ from sparse retrieval?", "expected_source": "Dense Passage Retrieval (DPR).pdf"},
+    {"question": "How are passage and question encoders trained in DPR?", "expected_source": "Dense Passage Retrieval (DPR).pdf"},
+   {"question": "What is salient span masking in REALM's pretraining approach?", "expected_source": "REALM.pdf"},
+{"question": "How does REALM handle the non-differentiability of the retrieval step during backpropagation?", "expected_source": "REALM.pdf"},
+    {"question": "What is RETRO and how does it use chunked cross-attention?", "expected_source": "RETRO.pdf"},
+    {"question": "How does retrieving from a large text database improve language model performance in RETRO?", "expected_source": "RETRO.pdf"},
+    {"question": "What does 'lost in the middle' refer to in long context language models?", "expected_source": "Lost in the Middle.pdf"},
+    {"question": "How does the position of relevant information in a long context affect model performance?", "expected_source": "Lost in the Middle.pdf"}
+  ]
+}
