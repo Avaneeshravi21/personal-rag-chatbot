@@ -8,7 +8,7 @@ sdk_version: "1.36.0"
 app_file: app.py
 pinned: false
 ---
-🔗 **[Try the live demo here](https://your-actual-streamlit-url.streamlit.app)**
+🔗 **[Try the live demo here](https://personal-rag-chatbot-wqbbkmvylfplt5bp2chha7.streamlit.app)**
  
 
 # Personal RAG Chatbot — Week 1: Ingestion & Retrieval
@@ -276,4 +276,4 @@ Dockerfile                         # containerizes the backend for deployment
   only needed by whatever platform ultimately deploys the container.
   Local development the whole project stayed Docker-free the entire time.
 
-🔗 **[Try the live demo here](https://your-actual-streamlit-url.streamlit.app)**
+🔗 **[Try the live demo here](https://personal-rag-chatbot-wqbbkmvylfplt5bp2chha7.streamlit.app)**
