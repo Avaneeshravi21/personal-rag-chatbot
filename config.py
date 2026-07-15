@@ -8,6 +8,24 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
+def _get_secret(key: str):
+    """
+    Checks a real environment variable first (used locally via .env,
+    and by the FastAPI/CLI versions). Falls back to Streamlit's secrets
+    store directly if running on Streamlit Cloud and the env var bridge
+    in app.py didn't apply in time for some reason -- this makes key
+    lookup work regardless of which path actually set it.
+    """
+    value = os.getenv(key)
+    if value:
+        return value
+    try:
+        import streamlit as st
+        return st.secrets.get(key)
+    except Exception:
+        return None
+
 # --- Paths ---
 RAW_DATA_DIR = "data/raw"          # drop your PDFs / docx / md / txt here
 PROCESSED_DATA_DIR = "data/processed"  # chunked + embedded output cache
@@ -59,9 +77,9 @@ FINAL_TOP_K = 5        # how many chunks actually go into the LLM context
 # --- LLM ---
 LLM_PROVIDER = "groq"          # "anthropic" | "openai" | "groq" (groq is free)
 LLM_MODEL = "llama-3.1-8b-instant"  # good free Groq model; swap to "claude-sonnet-5" + LLM_PROVIDER="anthropic" if you fund API credits later
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+ANTHROPIC_API_KEY = _get_secret("ANTHROPIC_API_KEY")
+OPENAI_API_KEY = _get_secret("OPENAI_API_KEY")
+GROQ_API_KEY = _get_secret("GROQ_API_KEY")
 
 # --- Memory ---
 MEMORY_BUFFER_TURNS = 6         # last N raw turns kept verbatim
